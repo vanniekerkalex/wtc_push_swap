@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_checker.c                                     :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avan-ni <avan-ni@student.wethinkcode.co.za>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/30 15:19:25 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/07/31 14:47:16 by avan-ni          ###   ########.fr       */
+/*   Created: 2018/07/31 14:14:42 by avan-ni           #+#    #+#             */
+/*   Updated: 2018/07/31 14:18:00 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int		ft_count_args (char **argv)
 {
@@ -86,29 +85,6 @@ void	ft_print_arr(t_stacks *s)
 	while (i >= 0)
 		printf("%d\n", s->stack_a[i--]);
 }
-
-int	ft_ccmd(char *l)
-{
-	if (ft_strcmp(l, "sa") || ft_strcmp(l, "sb") ||
-		ft_strcmp(l, "ss") || ft_strcmp(l, "pa") ||
-		ft_strcmp(l, "pb") || ft_strcmp(l, "ra") ||
-		ft_strcmp(l, "rb") || ft_strcmp(l, "rr") ||
-		ft_strcmp(l, "rra") || ft_strcmp(l, "rrb") ||
-		ft_strcmp(l, "rrr"))
-		return (1);
-	return (0);
-}
-
-void	ft_read(t_stacks *s)
-{
-	char *line;
-	int ret;
-
-	ret = 0;
-
-
-}
-
 
 int main (int argc, char **argv)
 {

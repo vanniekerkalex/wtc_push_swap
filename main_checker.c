@@ -6,7 +6,7 @@
 /*   By: avan-ni <avan-ni@student.wethinkcode.co.za>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/30 15:19:25 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/07/31 14:47:16 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/07/31 17:28:57 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,26 +89,73 @@ void	ft_print_arr(t_stacks *s)
 
 int	ft_ccmd(char *l)
 {
-	if (ft_strcmp(l, "sa") || ft_strcmp(l, "sb") ||
-		ft_strcmp(l, "ss") || ft_strcmp(l, "pa") ||
-		ft_strcmp(l, "pb") || ft_strcmp(l, "ra") ||
-		ft_strcmp(l, "rb") || ft_strcmp(l, "rr") ||
-		ft_strcmp(l, "rra") || ft_strcmp(l, "rrb") ||
-		ft_strcmp(l, "rrr"))
+	if (!ft_strcmp(l, "sa") || !ft_strcmp(l, "sb") ||
+		!ft_strcmp(l, "ss") || !ft_strcmp(l, "pa") ||
+		!ft_strcmp(l, "pb") || !ft_strcmp(l, "ra") ||
+		!ft_strcmp(l, "rb") || !ft_strcmp(l, "rr") ||
+		!ft_strcmp(l, "rra") || !ft_strcmp(l, "rrb") ||
+		!ft_strcmp(l, "rrr"))
 		return (1);
 	return (0);
 }
 
-void	ft_read(t_stacks *s)
+void	ft_select_function(t_stacks *s, char *str)
 {
-	char *line;
-	int ret;
-
-	ret = 0;
-
-
+	if (ft_strcmp(str, "sa") == 0)
+		ft_swap_a(s);
+	else if (ft_strcmp(str, "sb") == 0)
+		ft_swap_b(s);
+	else if (ft_strcmp(str, "ss") == 0)
+		ft_swap_ab(s);
+	else if (ft_strcmp(str, "pa") == 0)
+		ft_push_a(s);
+	else if (ft_strcmp(str, "pb") == 0)
+		ft_push_b(s);
+	else if (ft_strcmp(str, "ra") == 0)
+		ft_rotate_a(s);
+	else if (ft_strcmp(str, "rb") == 0)
+		ft_rotate_b(s);
+	else if (ft_strcmp(str, "rr") == 0)
+		ft_rotate_ab(s);
+	else if (ft_strcmp(str, "rra") == 0)
+		ft_rr_a(s);
+	else if (ft_strcmp(str, "rrb") == 0)
+		ft_rr_b(s);
+	else if (ft_strcmp(str, "rrr") == 0)
+		ft_rr_ab(s);
 }
 
+int		ft_read(t_stacks *s)
+{
+	char *line;
+
+	while (get_next_line(0, &line))
+	{
+		if (ft_ccmd(line))
+			ft_select_function(s, line);
+		else
+		{
+			ft_strdel(&line);
+			return (0);
+		}
+		ft_strdel(&line);
+	}
+	return (1);
+}
+
+int		ft_check_sorted(t_stacks *s)
+{
+	int i;
+
+	i = 0;
+	while (i < s->len_a - 1)
+	{
+		if (s->stack_a[i + 1] >= s->stack_a[i])
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 int main (int argc, char **argv)
 {
@@ -118,18 +165,18 @@ int main (int argc, char **argv)
 	if (argc > 1)
 	{
 		s->size = ft_count_args(argv);
-		if (ft_is_error(argv))
-		{
-			write(1,"Error\n", 6);
-			return (0);
-		}
 		s->stack_a = (int *)malloc(sizeof(int) * s->size);
-		if (!ft_store_arr(s, argv))
+		s->stack_b = (int *)malloc(sizeof(int) * s->size);
+		s->len_a = s->size;
+		if (ft_is_error(argv) || !ft_store_arr(s, argv) || !ft_read(s))
 		{
 			write(1,"Error\n", 6);
 			return (0);
 		}
-		s->len_a = s->size;
+		if (ft_check_sorted(s))
+			write(1,"OK\n", 3);
+		else
+			write(1,"KO\n", 3);
 		ft_print_arr(s);
 	}
 	return (0);

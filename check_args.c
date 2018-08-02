@@ -6,7 +6,7 @@
 /*   By: avan-ni <avan-ni@student.wethinkcode.co.za>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 14:16:37 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/01 17:43:16 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/08/02 18:56:57 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,8 @@ int		ft_check_sorted(t_stacks *s)
 	int i;
 
 	i = 0;
+//	if (s->len_b > 0)
+//		return (0);
 	while (i < s->len_a - 1)
 	{
 		if (s->stack_a[i + 1] > s->stack_a[i])

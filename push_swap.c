@@ -6,7 +6,7 @@
 /*   By: avan-ni <avan-ni@student.wethinkcode.co.za>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 14:11:52 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/01 19:38:04 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/08/02 19:42:52 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,23 +52,47 @@ int		ft_is_min(int *arr, int len, int num)
 	return (1);
 }
 
+int		ft_is_max(int *arr, int len, int num)
+{
+	int i;
+
+	i = 0;
+	while (i < len - 1)
+	{
+		if (num < arr[i])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+
 void	ft_sort(t_stacks *s)
 {
 	int i;
 
 	i = 0;
-	if (!ft_check_sorted(s))
+	if (!ft_check_sorted(s) || s->len_b > 0)
 	{
-		while (s->len_a > s->size / 2 + 1)
-			ft_push_b(s);
-		while (s->len_b > 0)
+		while (!ft_check_sorted(s) || s->len_b > 0)
 		{
-			ft_push_a(s);
-			if (s->stack_a[s->len_a - 1] > s->stack_a[s->len_a - 2])
+			if (ft_is_min(s->stack_a, s->len_a, s->stack_a[s->len_a - 1]))
+				ft_push_b(s);
+			else if (ft_is_max(s->stack_a, s->len_a, s->stack_a[s->len_a - 1]))
+				ft_rr_a(s);
+			else if (s->stack_a[s->len_a - 1] > s->stack_a[s->len_a - 2])
 				ft_swap_a(s);
-			ft_rotate_a(s);
+			else
+				ft_rr_a(s);
+			while (ft_check_sorted(s) && s->len_b > 0)
+			{
+				ft_push_a(s);
+				i++;
+			}
+			i++;
 		}
 	}
+	printf("\nCycles: %d\n", i);
 }
 
 int main (int argc, char **argv)

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   checker_functions3.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-ni <avan-ni@student.wethinkcode.co.za>+#+  +:+       +#+        */
+/*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 14:38:27 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/01 16:28:24 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/08/03 17:00:09 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_rr_a(t_stacks *s) // Shifts all elements down (bottom becomes top)
+void	ft_rr_a(t_stacks *s, int flag) // Shifts all elements down (bottom becomes top)
 {
 	int tmp;
 	int i;
@@ -27,11 +27,12 @@ void	ft_rr_a(t_stacks *s) // Shifts all elements down (bottom becomes top)
 			i++;
 		}
 		s->stack_a[s->len_a - 1] = tmp;
+		if (flag)
+			write(1, "rra\n", 4);
 	}
-	write(1,"RRA\n",4);
 }
 
-void	ft_rr_b(t_stacks *s) // Shifts all elements down (bottom becomes top)
+void	ft_rr_b(t_stacks *s, int flag) // Shifts all elements down (bottom becomes top)
 {
 	int tmp;
 	int i;
@@ -46,13 +47,15 @@ void	ft_rr_b(t_stacks *s) // Shifts all elements down (bottom becomes top)
 			i++;
 		}
 		s->stack_b[s->len_b - 1] = tmp;
+		if (flag)
+			write(1, "rrb\n", 4);
 	}
-	write(1,"RRB\n",4);
 }
 
-void	ft_rr_ab(t_stacks *s) // Shifts all elements down (bottom becomes top) - Both
+void	ft_rr_ab(t_stacks *s, int flag) // Shifts all elements down (bottom becomes top) - Both
 {
-	ft_rr_a(s);
-	ft_rr_b(s);
-	write(1,"RRR\n",4);
+	ft_rr_a(s, 1);
+	ft_rr_b(s, 1);
+	if (flag)
+		write(1,"rrr\n",4);
 }

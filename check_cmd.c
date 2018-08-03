@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_cmd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-ni <avan-ni@student.wethinkcode.co.za>+#+  +:+       +#+        */
+/*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 14:14:34 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/01 19:38:08 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/08/03 17:00:14 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,27 +27,27 @@ int	ft_ccmd(char *l)
 void	ft_select_function(t_stacks *s, char *str)
 {
 	if (ft_strcmp(str, "sa") == 0)
-		ft_swap_a(s);
+		ft_swap_a(s, 0);
 	else if (ft_strcmp(str, "sb") == 0)
-		ft_swap_b(s);
+		ft_swap_b(s, 0);
 	else if (ft_strcmp(str, "ss") == 0)
-		ft_swap_ab(s);
+		ft_swap_ab(s, 0);
 	else if (ft_strcmp(str, "pa") == 0)
-		ft_push_a(s);
+		ft_push_a(s, 0);
 	else if (ft_strcmp(str, "pb") == 0)
-		ft_push_b(s);
+		ft_push_b(s, 0);
 	else if (ft_strcmp(str, "ra") == 0)
-		ft_rotate_a(s);
+		ft_rotate_a(s, 0);
 	else if (ft_strcmp(str, "rb") == 0)
-		ft_rotate_b(s);
+		ft_rotate_b(s, 0);
 	else if (ft_strcmp(str, "rr") == 0)
-		ft_rotate_ab(s);
+		ft_rotate_ab(s, 0);
 	else if (ft_strcmp(str, "rra") == 0)
-		ft_rr_a(s);
+		ft_rr_a(s, 0);
 	else if (ft_strcmp(str, "rrb") == 0)
-		ft_rr_b(s);
+		ft_rr_b(s, 0);
 	else if (ft_strcmp(str, "rrr") == 0)
-		ft_rr_ab(s);
+		ft_rr_ab(s, 0);
 }
 
 int		ft_is_dup (t_stacks *s)

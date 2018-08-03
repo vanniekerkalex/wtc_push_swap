@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   checker_functions2.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-ni <avan-ni@student.wethinkcode.co.za>+#+  +:+       +#+        */
+/*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 14:38:02 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/01 16:28:00 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/08/03 17:00:11 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_rotate_a(t_stacks *s) // Shift all elements up (top becomes bottom)
+void	ft_rotate_a(t_stacks *s, int flag) // Shift all elements up (top becomes bottom)
 {
 	int tmp;
 	int i;
@@ -27,11 +27,12 @@ void	ft_rotate_a(t_stacks *s) // Shift all elements up (top becomes bottom)
 			i--;
 		}
 		s->stack_a[0] = tmp;
+		if (flag)
+			write(1, "ra\n", 3);
 	}
-	write(1,"RA\n",3);
 }
 
-void	ft_rotate_b(t_stacks *s) // Shift all elements up (top becomes bottom)
+void	ft_rotate_b(t_stacks *s, int flag) // Shift all elements up (top becomes bottom)
 {
 	int tmp;
 	int i;
@@ -46,13 +47,15 @@ void	ft_rotate_b(t_stacks *s) // Shift all elements up (top becomes bottom)
 			i--;
 		}
 		s->stack_b[0] = tmp;
+		if (flag)
+			write(1, "rb\n", 3);
 	}
-	write(1,"RB\n",3);
 }
 
-void	ft_rotate_ab(t_stacks *s) // Shift all elements up (top becomes bottom) - Both.
+void	ft_rotate_ab(t_stacks *s, int flag) // Shift all elements up (top becomes bottom) - Both.
 {
-	ft_rotate_a(s);
-	ft_rotate_b(s);
-	write(1,"RR\n",3);
+	ft_rotate_a(s, 1);
+	ft_rotate_b(s, 1);
+	if (flag)
+		write(1,"rr\n",3);
 }

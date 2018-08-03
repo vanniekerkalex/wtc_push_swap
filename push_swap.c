@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-ni <avan-ni@student.wethinkcode.co.za>+#+  +:+       +#+        */
+/*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 14:11:52 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/02 19:42:52 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/08/03 17:48:00 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,75 +24,87 @@ void	ft_print_arr(t_stacks *s)
 	printf("---\n\n");
 }
 
-int		ft_check_sorted_b(t_stacks *s)
-{
-	int i;
-
-	i = 0;
-	while (i < s->len_b - 1)
-	{
-		if (s->stack_b[i + 1] < s->stack_b[i])
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-int		ft_is_min(int *arr, int len, int num)
-{
-	int i;
-
-	i = 0;
-	while (i < len - 1)
-	{
-		if (num > arr[i])
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-int		ft_is_max(int *arr, int len, int num)
-{
-	int i;
-
-	i = 0;
-	while (i < len - 1)
-	{
-		if (num < arr[i])
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-
-void	ft_sort(t_stacks *s)
+void	ft_sort_v3(t_stacks *s)
 {
 	int i;
 
 	i = 0;
 	if (!ft_check_sorted(s) || s->len_b > 0)
 	{
-		while (!ft_check_sorted(s) || s->len_b > 0)
+		while (s->len_a > 0)
 		{
-			if (ft_is_min(s->stack_a, s->len_a, s->stack_a[s->len_a - 1]))
-				ft_push_b(s);
-			else if (ft_is_max(s->stack_a, s->len_a, s->stack_a[s->len_a - 1]))
-				ft_rr_a(s);
-			else if (s->stack_a[s->len_a - 1] > s->stack_a[s->len_a - 2])
-				ft_swap_a(s);
-			else
-				ft_rr_a(s);
-			while (ft_check_sorted(s) && s->len_b > 0)
-			{
-				ft_push_a(s);
-				i++;
-			}
+			ft_push_b(s, 1);
 			i++;
 		}
+		while (!ft_check_sorted(s) || s->len_b > 0)
+		{
+			if (ft_is_max(s->stack_b, s->len_b, s->stack_b[s->len_b - 1]))
+				ft_push_a(s, 1);
+			else if (ft_is_min(s->stack_b, s->len_b, s->stack_b[s->len_b - 1]))
+			{
+				ft_push_a(s, 1);
+				ft_rotate_a(s, 1);
+			}
+			else if (ft_minmax(s->stack_b, s->len_b, s->stack_b[s->len_b - 2]))
+				ft_swap_b(s, 1);
+			else if (ft_minmax(s->stack_b, s->len_b, s->stack_b[0]))
+				ft_rr_b(s, 1);
+			else
+				ft_rr_b(s, 1);
+			i++;
+			if (ft_check_sorted_b(s) && s->len_b > 0)
+				while (s->len_b > 0)
+				{
+					ft_push_a(s, 1);
+					i++;
+				}
+			while (s->len_b == 0 && !ft_check_sorted(s))
+				ft_rotate_a(s, 1);
+		}
 	}
-	printf("\nCycles: %d\n", i);
+	//printf("\nCycles: %d\n", i);
+}
+
+void	ft_sort_v4(t_stacks *s)
+{
+	int i;
+
+	i = 0;
+	if (!ft_check_sorted(s) || s->len_b > 0)
+	{
+		while (s->len_a > 0)
+		{
+			ft_push_b(s, 1);
+			i++;
+		}
+		while (!ft_check_sorted(s) || s->len_b > 0)
+		{
+			if (ft_is_max(s->stack_b, s->len_b, s->stack_b[s->len_b - 1]))
+				ft_push_a(s, 1);
+			else if (ft_is_min(s->stack_b, s->len_b, s->stack_b[s->len_b - 1]))
+			{
+				ft_push_a(s, 1);
+				ft_rotate_a(s, 1);
+			}
+			else if (ft_find_mm(s->stack_b, s->len_b) == 2)
+				ft_rotate_b(s, 1);
+			else
+				ft_rr_b(s, 1);
+			i++;
+			if (ft_check_sorted_b(s) && s->len_b > 0)
+				while (s->len_b > 0)
+				{
+					ft_push_a(s, 1);
+					i++;
+				}
+			while (s->len_b == 0 && !ft_check_sorted(s))
+			{
+				ft_rotate_a(s, 1);
+				i++;
+			}
+		}
+	}
+	//printf("\nCycles: %d\n", i);
 }
 
 int main (int argc, char **argv)
@@ -111,9 +123,19 @@ int main (int argc, char **argv)
 			write(1,"Error\n", 6);
 			return (0);
 		}
-		ft_print_arr(s);
-		ft_sort(s);
-		ft_print_arr(s);
+		//ft_print_arr(s);
+		if (s->len_a == 3)
+			ft_sort_3(s, 0);
+		else if (s->len_a == 4)
+			ft_sort_4(s);
+		else if (s->len_a < 11)
+			ft_sort(s, 0);
+		else
+			ft_sort_v4(s);
+		//ft_print_arr(s);
+		ft_free(s);
+		while (1)
+		;
 	}
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-agr <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jde-agr <avan-ni@student.wethinkcode.co.za>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 13:51:26 by jde-agr           #+#    #+#             */
-/*   Updated: 2018/08/04 13:51:58 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/08/04 16:18:56 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,12 @@ int	ft_store_arr(t_stacks *s, char **argv)
 			if (((tmp[j][0] != '0') && ft_strcmp(tmp[j], "-0"))
 					&& s->stack_a[s->size - 1 - k] == 0)
 				return (0);
+			ft_strdel(&tmp[j]);
 			j++;
 			k++;
 		}
 		ft_strdel(tmp);
+		tmp = NULL;
 		i++;
 	}
 	return (1);

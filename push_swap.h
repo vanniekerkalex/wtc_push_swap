@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
+/*   By: avan-ni <avan-ni@student.wethinkcode.co.za>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/30 15:11:27 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/04 14:30:01 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/08/04 16:11:24 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,9 @@ int				ft_find_mm(int *arr, int len);
 void			ft_sort(t_stacks *s, int l_b);
 void			ft_sort_3(t_stacks *s, int l_b);
 void			ft_sort_4(t_stacks *s);
+
+void			ft_sort_blocks(t_stacks *s, int div, int sml);
+void			ft_sort_v5(t_stacks *s);
 
 void			ft_free(t_stacks *s);
 

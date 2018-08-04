@@ -6,13 +6,13 @@
 /*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 14:14:34 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/03 17:00:14 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/08/04 13:52:58 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_ccmd(char *l)
+int		ft_ccmd(char *l)
 {
 	if (!ft_strcmp(l, "sa") || !ft_strcmp(l, "sb") ||
 		!ft_strcmp(l, "ss") || !ft_strcmp(l, "pa") ||
@@ -50,7 +50,7 @@ void	ft_select_function(t_stacks *s, char *str)
 		ft_rr_ab(s, 0);
 }
 
-int		ft_is_dup (t_stacks *s)
+int		ft_is_dup(t_stacks *s)
 {
 	int i;
 	int j;

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-ni <avan-ni@student.wethinkcode.co.za>+#+  +:+       +#+        */
+/*   By: jde-agr <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/01 14:16:37 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/02 18:56:57 by avan-ni          ###   ########.fr       */
+/*   Created: 2018/08/04 13:51:26 by jde-agr           #+#    #+#             */
+/*   Updated: 2018/08/04 13:51:58 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_count_args (char **argv)
+int	ft_count_args(char **argv)
 {
 	int count;
 	int i;
@@ -27,12 +27,12 @@ int		ft_count_args (char **argv)
 	return (count);
 }
 
-int		ft_store_arr (t_stacks *s, char **argv)
+int	ft_store_arr(t_stacks *s, char **argv)
 {
-	char **tmp;
-	int i;
-	int j;
-	int k;
+	char	**tmp;
+	int		i;
+	int		j;
+	int		k;
 
 	i = 1;
 	k = 0;
@@ -55,7 +55,7 @@ int		ft_store_arr (t_stacks *s, char **argv)
 	return (1);
 }
 
-int		ft_is_error(char **argv)
+int	ft_is_error(char **argv)
 {
 	int i;
 	int j;
@@ -76,7 +76,7 @@ int		ft_is_error(char **argv)
 	return (0);
 }
 
-int		ft_read(t_stacks *s)
+int	ft_read(t_stacks *s)
 {
 	char *line;
 
@@ -94,7 +94,7 @@ int		ft_read(t_stacks *s)
 	return (1);
 }
 
-int		ft_check_sorted(t_stacks *s)
+int	ft_check_sorted(t_stacks *s)
 {
 	int i;
 

@@ -6,7 +6,7 @@
 /*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/30 13:19:37 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/03 17:00:12 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/08/04 13:54:41 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_swap_ab(t_stacks *s, int flag) // Swaps top two elements of both stacks
 	ft_swap_a(s, 1);
 	ft_swap_b(s, 1);
 	if (flag)
-		write(1,"ss\n",3);
+		write(1, "ss\n", 3);
 }
 
 void	ft_push_a(t_stacks *s, int flag) // Push top element from B to A
@@ -56,7 +56,7 @@ void	ft_push_a(t_stacks *s, int flag) // Push top element from B to A
 		s->len_a++;
 		s->len_b--;
 		if (flag)
-		write(1, "pa\n", 3);
+			write(1, "pa\n", 3);
 	}
 }
 

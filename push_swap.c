@@ -6,7 +6,7 @@
 /*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 14:11:52 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/03 17:48:00 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/08/04 14:12:41 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,11 +107,11 @@ void	ft_sort_v4(t_stacks *s)
 	//printf("\nCycles: %d\n", i);
 }
 
-int main (int argc, char **argv)
+int		main(int argc, char **argv)
 {
 	t_stacks	*s;
-	s = init_struct();
 
+	s = init_struct();
 	if (argc > 1)
 	{
 		s->size = ft_count_args(argv);
@@ -120,7 +120,7 @@ int main (int argc, char **argv)
 		s->len_a = s->size;
 		if (ft_is_error(argv) || !ft_store_arr(s, argv) || ft_is_dup(s))
 		{
-			write(1,"Error\n", 6);
+			write(1, "Error\n", 6);
 			return (0);
 		}
 		//ft_print_arr(s);
@@ -134,8 +134,8 @@ int main (int argc, char **argv)
 			ft_sort_v4(s);
 		//ft_print_arr(s);
 		ft_free(s);
-		while (1)
-		;
+		//while (1)
+		//;
 	}
 	return (0);
 }

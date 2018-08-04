@@ -6,7 +6,7 @@
 /*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/30 15:11:27 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/03 17:47:56 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/08/04 14:30:01 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,11 @@
 
 typedef struct	s_stacks
 {
-	int *stack_a;
-	int *stack_b;
-	int size;
-	int len_a;
-	int len_b;
-	char *commands;
+	int		*stack_a;
+	int		*stack_b;
+	int		size;
+	int		len_a;
+	int		len_b;
 }				t_stacks;
 
 t_stacks		*init_struct(void);

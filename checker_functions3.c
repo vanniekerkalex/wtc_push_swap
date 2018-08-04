@@ -6,7 +6,7 @@
 /*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 14:38:27 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/03 17:00:09 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/08/04 13:56:24 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,5 @@ void	ft_rr_ab(t_stacks *s, int flag) // Shifts all elements down (bottom becomes
 	ft_rr_a(s, 1);
 	ft_rr_b(s, 1);
 	if (flag)
-		write(1,"rrr\n",4);
+		write(1, "rrr\n", 4);
 }

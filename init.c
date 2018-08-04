@@ -6,7 +6,7 @@
 /*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/30 15:15:25 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/03 17:26:21 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/08/04 14:29:50 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,5 @@ t_stacks	*init_struct(void)
 	s->size = 0;
 	s->len_a = 0;
 	s->len_b = 0;
-	s->commands = NULL;
 	return (s);
 }

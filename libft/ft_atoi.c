@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-ni <avan-ni@student.wethinkcode.co.za>+#+  +:+       +#+        */
+/*   By: jde-agr <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/22 14:09:54 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/07/31 13:50:26 by avan-ni          ###   ########.fr       */
+/*   Created: 2018/08/04 14:14:03 by jde-agr           #+#    #+#             */
+/*   Updated: 2018/08/04 14:14:14 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_atoi(const char *str)
 {
-	int sign;
-	long int sum;
+	int			sign;
+	long int	sum;
 
 	sign = 1;
 	sum = 0;

@@ -6,7 +6,7 @@
 /*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/03 17:14:34 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/03 17:47:55 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/08/04 14:09:54 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		ft_find_mm(int *arr, int len)
 	int max;
 	int val;
 
-	val = 0;
+	val = 1;
 	min = 0;
 	max = 0;
 	i = 0;
@@ -30,9 +30,9 @@ int		ft_find_mm(int *arr, int len)
 		i++;
 	}
 	if (ft_abs(len / 2, max) > ft_abs(len / 2, min))
-		(max < len / 2) ? (val = 1) : (val = 2);
+		(max < len / 2) ? (val) : (val = 2);
 	else
-		(min < len / 2) ? (val = 1) : (val = 2);
+		(min < len / 2) ? (val) : (val = 2);
 	return (val);
 }
 

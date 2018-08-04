@@ -6,13 +6,13 @@
 /*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/30 13:19:37 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/04 13:54:41 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/08/04 16:53:58 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_swap_a(t_stacks *s, int flag) // Swaps top two elements
+void	ft_swap_a(t_stacks *s, int flag)
 {
 	int tmp;
 
@@ -26,7 +26,7 @@ void	ft_swap_a(t_stacks *s, int flag) // Swaps top two elements
 	}
 }
 
-void	ft_swap_b(t_stacks *s, int flag) // Swaps top two elements
+void	ft_swap_b(t_stacks *s, int flag)
 {
 	int tmp;
 
@@ -40,7 +40,7 @@ void	ft_swap_b(t_stacks *s, int flag) // Swaps top two elements
 	}
 }
 
-void	ft_swap_ab(t_stacks *s, int flag) // Swaps top two elements of both stacks
+void	ft_swap_ab(t_stacks *s, int flag)
 {
 	ft_swap_a(s, 1);
 	ft_swap_b(s, 1);
@@ -48,7 +48,7 @@ void	ft_swap_ab(t_stacks *s, int flag) // Swaps top two elements of both stacks
 		write(1, "ss\n", 3);
 }
 
-void	ft_push_a(t_stacks *s, int flag) // Push top element from B to A
+void	ft_push_a(t_stacks *s, int flag)
 {
 	if (s->len_b > 0)
 	{
@@ -60,7 +60,7 @@ void	ft_push_a(t_stacks *s, int flag) // Push top element from B to A
 	}
 }
 
-void	ft_push_b(t_stacks *s, int flag) // Push top element from A to B
+void	ft_push_b(t_stacks *s, int flag)
 {
 	if (s->len_a > 0)
 	{

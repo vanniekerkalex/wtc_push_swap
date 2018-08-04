@@ -3,26 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-ni <avan-ni@student.wethinkcode.co.za>+#+  +:+       +#+        */
+/*   By: jde-agr <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/01 14:11:52 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/04 16:11:35 by avan-ni          ###   ########.fr       */
+/*   Created: 2018/08/04 16:55:36 by jde-agr           #+#    #+#             */
+/*   Updated: 2018/08/04 17:13:31 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
-
-void	ft_print_arr(t_stacks *s)
-{
-	int i;
-
-	i = s->len_a - 1;
-	printf("\nTOP\n---\n");
-	while (i >= 0)
-		printf("%d\n", s->stack_a[i--]);
-	printf("---\n\n");
-}
 
 int		main(int argc, char **argv)
 {
@@ -40,7 +28,6 @@ int		main(int argc, char **argv)
 			write(1, "Error\n", 6);
 			return (0);
 		}
-		//ft_print_arr(s);
 		if (s->len_a == 3)
 			ft_sort_3(s, 0);
 		else if (s->len_a == 4)
@@ -49,10 +36,7 @@ int		main(int argc, char **argv)
 			ft_sort(s, 0);
 		else
 			ft_sort_v5(s);
-		//ft_print_arr(s);
 		ft_free(s);
-		//while (1)
-		//;
 	}
 	return (0);
 }

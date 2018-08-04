@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-agr <avan-ni@student.wethinkcode.co.za>+#+  +:+       +#+        */
+/*   By: jde-agr <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/04 13:51:26 by jde-agr           #+#    #+#             */
-/*   Updated: 2018/08/04 16:18:56 by avan-ni          ###   ########.fr       */
+/*   Created: 2018/08/04 16:51:01 by jde-agr           #+#    #+#             */
+/*   Updated: 2018/08/04 17:13:47 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,10 @@ int	ft_store_arr(t_stacks *s, char **argv)
 			if (((tmp[j][0] != '0') && ft_strcmp(tmp[j], "-0"))
 					&& s->stack_a[s->size - 1 - k] == 0)
 				return (0);
-			ft_strdel(&tmp[j]);
-			j++;
+			ft_strdel(&tmp[j++]);
 			k++;
 		}
-		ft_strdel(tmp);
+		free(tmp);
 		tmp = NULL;
 		i++;
 	}
@@ -88,11 +87,12 @@ int	ft_read(t_stacks *s)
 			ft_select_function(s, line);
 		else
 		{
-			ft_strdel(&line);
+			free(line);
 			return (0);
 		}
-		ft_strdel(&line);
+		free(line);
 	}
+	free(line);
 	return (1);
 }
 
@@ -101,8 +101,6 @@ int	ft_check_sorted(t_stacks *s)
 	int i;
 
 	i = 0;
-//	if (s->len_b > 0)
-//		return (0);
 	while (i < s->len_a - 1)
 	{
 		if (s->stack_a[i + 1] > s->stack_a[i])

@@ -6,13 +6,13 @@
 /*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 14:38:02 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/04 13:55:32 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/08/04 16:50:11 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_rotate_a(t_stacks *s, int flag) // Shift all elements up (top becomes bottom)
+void	ft_rotate_a(t_stacks *s, int flag)
 {
 	int tmp;
 	int i;
@@ -32,7 +32,7 @@ void	ft_rotate_a(t_stacks *s, int flag) // Shift all elements up (top becomes bo
 	}
 }
 
-void	ft_rotate_b(t_stacks *s, int flag) // Shift all elements up (top becomes bottom)
+void	ft_rotate_b(t_stacks *s, int flag)
 {
 	int tmp;
 	int i;
@@ -52,7 +52,7 @@ void	ft_rotate_b(t_stacks *s, int flag) // Shift all elements up (top becomes bo
 	}
 }
 
-void	ft_rotate_ab(t_stacks *s, int flag) // Shift all elements up (top becomes bottom) - Both.
+void	ft_rotate_ab(t_stacks *s, int flag)
 {
 	ft_rotate_a(s, 1);
 	ft_rotate_b(s, 1);

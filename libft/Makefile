@@ -6,7 +6,7 @@
 #    By: avan-ni <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/19 13:48:02 by avan-ni           #+#    #+#              #
-#    Updated: 2018/06/06 19:45:10 by avan-ni          ###   ########.fr        #
+#    Updated: 2018/08/04 17:28:43 by jde-agr          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,17 +19,17 @@ SRCS = *.c
 OBJS = *.o
 
 $(NAME):
-	gcc $(FLAGS) -c $(SRCS)
-	ar rc $(NAME) $(OBJS)
-	ranlib $(NAME)
+	@gcc $(FLAGS) -c $(SRCS)
+	@ar rc $(NAME) $(OBJS)
+	@ranlib $(NAME)
 
 all: $(NAME)
 
 clean:
-	rm -rf $(OBJS)
+	@rm -rf $(OBJS)
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re: fclean all
 

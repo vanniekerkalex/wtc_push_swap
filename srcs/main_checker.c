@@ -6,22 +6,11 @@
 /*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/30 15:19:25 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/04 14:26:00 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/08/04 17:13:37 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
-
-void	ft_print_arr(t_stacks *s)
-{
-	int i;
-
-	i = s->len_a - 1;
-	printf("TOP\n---\n");
-	while (i >= 0)
-		printf("%d\n", s->stack_a[i--]);
-}
 
 int		main(int argc, char **argv)
 {
@@ -45,7 +34,6 @@ int		main(int argc, char **argv)
 			write(1, "OK\n", 3);
 		else
 			write(1, "KO\n", 3);
-		//ft_print_arr(s);
 		ft_free(s);
 	}
 	return (0);

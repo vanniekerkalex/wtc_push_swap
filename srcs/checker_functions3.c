@@ -6,7 +6,7 @@
 /*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 14:38:27 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/04 16:54:47 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/08/06 15:22:03 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	ft_rr_a(t_stacks *s, int flag)
 		s->stack_a[s->len_a - 1] = tmp;
 		if (flag)
 			write(1, "rra\n", 4);
+		print_win(s, flag);
 	}
 }
 
@@ -49,6 +50,7 @@ void	ft_rr_b(t_stacks *s, int flag)
 		s->stack_b[s->len_b - 1] = tmp;
 		if (flag)
 			write(1, "rrb\n", 4);
+		print_win(s, flag);
 	}
 }
 
@@ -58,4 +60,5 @@ void	ft_rr_ab(t_stacks *s, int flag)
 	ft_rr_b(s, 1);
 	if (flag)
 		write(1, "rrr\n", 4);
+	print_win(s, flag);
 }

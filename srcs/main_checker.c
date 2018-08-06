@@ -6,7 +6,7 @@
 /*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/30 15:19:25 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/04 17:13:37 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/08/06 15:25:53 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ int		main(int argc, char **argv)
 {
 	t_stacks	*s;
 
-	s = init_struct();
 	if (argc > 1)
 	{
+		s = init_struct();
 		s->size = ft_count_args(argv);
 		s->stack_a = (int *)malloc(sizeof(int) * s->size);
 		s->stack_b = (int *)malloc(sizeof(int) * s->size);

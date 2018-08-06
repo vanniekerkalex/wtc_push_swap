@@ -6,7 +6,7 @@
 /*   By: jde-agr <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 16:58:03 by jde-agr           #+#    #+#             */
-/*   Updated: 2018/08/04 16:58:06 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/08/06 15:21:31 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "libft.h"
+# include <ncurses.h>
 
 typedef struct	s_stacks
 {
@@ -51,7 +52,7 @@ int				ft_is_error(char **argv);
 int				ft_read(t_stacks *s);
 int				ft_check_sorted(t_stacks *s);
 
-void			ft_print_arr(t_stacks *s);
+void			print_win(t_stacks *s, int flag);
 
 int				ft_check_sorted_b(t_stacks *s);
 int				ft_is_min(int *arr, int len, int num);

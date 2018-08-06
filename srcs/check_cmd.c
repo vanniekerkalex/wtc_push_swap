@@ -6,11 +6,12 @@
 /*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 14:14:34 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/04 13:52:58 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/08/06 15:27:04 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <sys/wait.h>
 
 int		ft_ccmd(char *l)
 {
@@ -68,4 +69,46 @@ int		ft_is_dup(t_stacks *s)
 		i++;
 	}
 	return (0);
+}
+
+void	ft_print_arr(t_stacks *s, int x, int y, WINDOW *w)
+{
+	int i;
+	int j;
+
+	i = s->len_a - 1;
+	j = 0;
+	mvwprintw(w, y + j, x, "TOP OF A\n");
+	mvwprintw(w, y + j + 1, x, "---\n");
+	mvwprintw(w, y + j++, x + 20, "TOP OF B\n");
+	mvwprintw(w, y + j, x + 20, "---\n");
+	j++;
+	while (i >= 0)
+	{
+		mvwprintw(w, y + j++, x, "%d\n", s->stack_a[i]);
+		i--;
+	}
+	i = s->len_b - 1;
+	j = 2;
+	while (i >= 0)
+	{
+		mvwprintw(w, y + j++, x + 20, "%d\n", s->stack_b[i]);
+		i--;
+	}
+}
+
+void	print_win(t_stacks *s, int flag)
+{
+	WINDOW *win;
+
+	win = initscr();
+	wclear(win);
+	ft_print_arr(s, 0, 0, win);
+	wrefresh(win);
+	if (flag == 0)
+		getch();
+	else
+		usleep(500000);
+	wclear(win);
+	endwin();
 }

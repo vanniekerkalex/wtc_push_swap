@@ -6,11 +6,12 @@
 /*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/30 13:19:37 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/04 16:53:58 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/08/06 15:26:21 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <ncurses.h>
 
 void	ft_swap_a(t_stacks *s, int flag)
 {
@@ -23,6 +24,7 @@ void	ft_swap_a(t_stacks *s, int flag)
 		s->stack_a[s->len_a - 1] = tmp;
 		if (flag)
 			write(1, "sa\n", 3);
+		print_win(s, flag);
 	}
 }
 
@@ -37,6 +39,7 @@ void	ft_swap_b(t_stacks *s, int flag)
 		s->stack_b[s->len_b - 1] = tmp;
 		if (flag)
 			write(1, "sb\n", 3);
+		print_win(s, flag);
 	}
 }
 
@@ -46,6 +49,7 @@ void	ft_swap_ab(t_stacks *s, int flag)
 	ft_swap_b(s, 1);
 	if (flag)
 		write(1, "ss\n", 3);
+	print_win(s, flag);
 }
 
 void	ft_push_a(t_stacks *s, int flag)
@@ -57,6 +61,7 @@ void	ft_push_a(t_stacks *s, int flag)
 		s->len_b--;
 		if (flag)
 			write(1, "pa\n", 3);
+		print_win(s, flag);
 	}
 }
 
@@ -69,5 +74,6 @@ void	ft_push_b(t_stacks *s, int flag)
 		s->len_a--;
 		if (flag)
 			write(1, "pb\n", 3);
+		print_win(s, flag);
 	}
 }

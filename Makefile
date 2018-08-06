@@ -6,7 +6,7 @@
 #    By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/31 13:16:05 by avan-ni           #+#    #+#              #
-#    Updated: 2018/08/04 17:36:37 by jde-agr          ###   ########.fr        #
+#    Updated: 2018/08/06 12:12:25 by jde-agr          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ check_cmd.o check_args.o sorting_small.o sorting_big.o assist.o
 
 HEADERS = -I libft/includes -I includes/
 
-LIB = libft/libft.a
+LIB = libft/libft.a -lncurses
 
 $(CHECK) :
 	@make fclean -C libft/

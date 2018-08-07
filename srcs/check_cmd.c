@@ -6,7 +6,7 @@
 /*   By: avan-ni <avan-ni@student.wethinkcode.co.za>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 18:51:21 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/07 19:26:10 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/08/07 23:30:36 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void	ft_print_arr(t_stacks *s, int x, int y)
 	start_color();
 	init_pair(1, COLOR_GREEN, COLOR_BLACK);
 	init_pair(2, COLOR_RED, COLOR_BLACK);
+	init_pair(3, COLOR_WHITE, COLOR_BLACK);
 	mvprintw(y + j, x, "TOP OF A\n");
 	mvprintw(y + j + 1, x, "---\n");
 	mvprintw(y + j, x + 20, "TOP OF B\n");
@@ -97,6 +98,7 @@ void	ft_print_arr(t_stacks *s, int x, int y)
 	attron(COLOR_PAIR(2));
 	while (i >= 0)
 		(j <= 84) ? (mvprintw(y + j++, x + 20, "%d\n", s->stack_b[i--])) : (i--);
+	attron(COLOR_PAIR(3));
 }
 
 void	print_win(t_stacks *s, int flag, int p_flag)
@@ -112,10 +114,9 @@ void	print_win(t_stacks *s, int flag, int p_flag)
 		ft_print_arr(s, 0, 0);
 	refresh();
 	if (flag == 0)
-		usleep(20000);
+		usleep(3000000/s->size);
 	else
-		usleep(20000);
-		//usleep(5000000 / (s->size * 3));
+		usleep(3000000/s->size);
 	clear();
 	endwin();
 }

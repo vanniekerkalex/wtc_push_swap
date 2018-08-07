@@ -6,7 +6,7 @@
 /*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 14:14:34 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/07 13:21:04 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/08/07 14:34:51 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,9 +106,9 @@ void	print_win(t_stacks *s, int flag)
 	ft_print_arr(s, 0, 0);
 	refresh();
 	if (flag == 0)
-		usleep(2000000);
+		usleep(5000000 / s->size);
 	else
-		usleep(1000000);
+		usleep(5000000 / s->size);
 	clear();
 	endwin();
 }

@@ -6,7 +6,7 @@
 /*   By: jde-agr <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 16:55:36 by jde-agr           #+#    #+#             */
-/*   Updated: 2018/08/07 13:26:14 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/08/07 14:54:51 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ int		main(int argc, char **argv)
 	{
 		s = init_struct();
 		pflag = 0;
+		(ft_is_viz2(argv)) && argv++ && pflag++;
 		s->size = ft_count_args(argv);
 		s->stack_a = (int *)malloc(sizeof(int) * s->size);
 		s->stack_b = (int *)malloc(sizeof(int) * s->size);
 		s->len_a = s->size;
-		(ft_is_viz2(argv)) && argv++ && pflag++;
 		if (ft_is_error(argv) || !ft_store_arr(s, argv) || ft_is_dup(s))
 		{
 			write(1, "Error\n", 6);

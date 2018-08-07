@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: avan-ni <avan-ni@student.wethinkcode.co.za>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/01 14:14:34 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/07 18:45:51 by avan-ni          ###   ########.fr       */
+/*   Created: 2018/08/07 18:51:21 by avan-ni           #+#    #+#             */
+/*   Updated: 2018/08/07 19:26:10 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,37 +86,36 @@ void	ft_print_arr(t_stacks *s, int x, int y)
 	init_pair(2, COLOR_RED, COLOR_BLACK);
 	mvprintw(y + j, x, "TOP OF A\n");
 	mvprintw(y + j + 1, x, "---\n");
-	mvprintw(y + j++, x + 20, "TOP OF B\n");
-	mvprintw(y + j, x + 20, "---\n");
-	j++;
+	mvprintw(y + j, x + 20, "TOP OF B\n");
+	mvprintw(y + j + 1, x + 20, "---\n");
+	j += 2;
+	attron(COLOR_PAIR(1));
 	while (i >= 0)
-	{
-		attron(COLOR_PAIR(1));
-		mvprintw(y + j++, x, "%d\n", s->stack_a[i--]);
-	}
+		(j <= 84) ? (mvprintw(y + j++, x, "%d\n", s->stack_a[i--])) : (i--);
 	i = s->len_b - 1;
 	j = 2;
+	attron(COLOR_PAIR(2));
 	while (i >= 0)
-	{
-		attron(COLOR_PAIR(2));
-		mvprintw(y + j++, x + 20, "%d\n", s->stack_b[i--]);
-	}
+		(j <= 84) ? (mvprintw(y + j++, x + 20, "%d\n", s->stack_b[i--])) : (i--);
 }
 
 void	print_win(t_stacks *s, int flag, int p_flag)
 {
 	newterm(NULL, stderr, stdin);
 	curs_set(0);
-	if (p_flag == 1 || p_flag == 2)
+	if (p_flag == 1)
 	{
 		ft_print_arr(s, 0, 0);
-		ft_viz_cool(s, 2, 40);
+		ft_viz_cool(s, 0, 40);
 	}
+	else if (p_flag == 2)
+		ft_print_arr(s, 0, 0);
 	refresh();
 	if (flag == 0)
-		usleep(5000000 / (s->size*3));
+		usleep(20000);
 	else
-		usleep(5000000 / (s->size*3));
+		usleep(20000);
+		//usleep(5000000 / (s->size * 3));
 	clear();
 	endwin();
 }

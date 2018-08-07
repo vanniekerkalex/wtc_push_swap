@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker_functions2.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
+/*   By: avan-ni <avan-ni@student.wethinkcode.co.za>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 14:38:02 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/07 12:19:32 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/08/07 18:14:13 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_rotate_a(t_stacks *s, int flag, int p_flag)
 		if (flag)
 			write(1, "ra\n", 3);
 		if (p_flag)
-			print_win(s, flag);
+			print_win(s, flag, p_flag);
 	}
 }
 
@@ -52,7 +52,7 @@ void	ft_rotate_b(t_stacks *s, int flag, int p_flag)
 		if (flag)
 			write(1, "rb\n", 3);
 		if (p_flag)
-			print_win(s, flag);
+			print_win(s, flag, p_flag);
 	}
 }
 
@@ -63,5 +63,5 @@ void	ft_rotate_ab(t_stacks *s, int flag, int p_flag)
 	if (flag)
 		write(1, "rr\n", 3);
 	if (p_flag)
-		print_win(s, flag);
+		print_win(s, flag, p_flag);
 }

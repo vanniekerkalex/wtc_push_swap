@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
+/*   By: avan-ni <avan-ni@student.wethinkcode.co.za>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/30 15:15:25 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/04 14:29:50 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/08/07 18:34:30 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,32 @@ t_stacks	*init_struct(void)
 	s->len_a = 0;
 	s->len_b = 0;
 	return (s);
+}
+
+void	ft_viz_cool(t_stacks *s, int y, int x)
+{
+	int i;
+	int j;
+
+	i = 0;
+	start_color();
+	init_pair(1, COLOR_GREEN, COLOR_BLACK);
+	init_pair(2, COLOR_RED, COLOR_BLACK);
+	attron(COLOR_PAIR(1));
+
+	while (i <= s->len_a - 1)
+	{
+		j = 0;
+		while (j <= (s->stack_a[s->len_a - i - 1]/1))
+			mvprintw(y + i, x + j++, "X");
+		i++;
+	}
+	attron(COLOR_PAIR(2));
+	while (i <= s->size - 1)
+	{
+		j = 0;
+		while (j <= (s->stack_b[s->size - i - 1]/1))
+			mvprintw(y + i, x + j++, "X");
+		i++;
+	}
 }

@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_cmd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
+/*   By: avan-ni <avan-ni@student.wethinkcode.co.za>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 14:14:34 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/07 14:34:51 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/08/07 18:45:51 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <sys/wait.h>
 
 int		ft_ccmd(char *l)
 {
@@ -24,6 +23,8 @@ int		ft_ccmd(char *l)
 		return (1);
 	if (!ft_strcmp(l, "-v"))
 		return (2);
+	if (!ft_strcmp(l, "-c"))
+		return (3);
 	return (0);
 }
 
@@ -80,6 +81,9 @@ void	ft_print_arr(t_stacks *s, int x, int y)
 
 	i = s->len_a - 1;
 	j = 0;
+	start_color();
+	init_pair(1, COLOR_GREEN, COLOR_BLACK);
+	init_pair(2, COLOR_RED, COLOR_BLACK);
 	mvprintw(y + j, x, "TOP OF A\n");
 	mvprintw(y + j + 1, x, "---\n");
 	mvprintw(y + j++, x + 20, "TOP OF B\n");
@@ -87,28 +91,32 @@ void	ft_print_arr(t_stacks *s, int x, int y)
 	j++;
 	while (i >= 0)
 	{
-		mvprintw(y + j++, x, "%d\n", s->stack_a[i]);
-		i--;
+		attron(COLOR_PAIR(1));
+		mvprintw(y + j++, x, "%d\n", s->stack_a[i--]);
 	}
 	i = s->len_b - 1;
 	j = 2;
 	while (i >= 0)
 	{
-		mvprintw(y + j++, x + 20, "%d\n", s->stack_b[i]);
-		i--;
+		attron(COLOR_PAIR(2));
+		mvprintw(y + j++, x + 20, "%d\n", s->stack_b[i--]);
 	}
 }
 
-void	print_win(t_stacks *s, int flag)
+void	print_win(t_stacks *s, int flag, int p_flag)
 {
 	newterm(NULL, stderr, stdin);
 	curs_set(0);
-	ft_print_arr(s, 0, 0);
+	if (p_flag == 1 || p_flag == 2)
+	{
+		ft_print_arr(s, 0, 0);
+		ft_viz_cool(s, 2, 40);
+	}
 	refresh();
 	if (flag == 0)
-		usleep(5000000 / s->size);
+		usleep(5000000 / (s->size*3));
 	else
-		usleep(5000000 / s->size);
+		usleep(5000000 / (s->size*3));
 	clear();
 	endwin();
 }

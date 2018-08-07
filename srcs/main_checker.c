@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_checker.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
+/*   By: avan-ni <avan-ni@student.wethinkcode.co.za>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/30 15:19:25 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/07 14:55:53 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/08/07 18:29:02 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int		ft_is_viz(char **argv)
 {
 	if (ft_ccmd(argv[1]) == 2)
 		return (1);
+	if (ft_ccmd(argv[1]) == 3)
+		return (2);
 	return (0);
 }
 
@@ -27,8 +29,7 @@ int		main(int argc, char **argv)
 	if (argc > 1)
 	{
 		s = init_struct();
-		pflag = 0;
-		(ft_is_viz(argv)) && argv++ && pflag++;
+		(pflag = ft_is_viz(argv)) && argv++;
 		s->size = ft_count_args(argv);
 		s->stack_a = (int *)malloc(sizeof(int) * s->size);
 		s->stack_b = (int *)malloc(sizeof(int) * s->size);

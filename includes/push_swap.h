@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-agr <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: avan-ni <avan-ni@student.wethinkcode.co.za>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/04 16:58:03 by jde-agr           #+#    #+#             */
-/*   Updated: 2018/08/07 12:32:56 by jde-agr          ###   ########.fr       */
+/*   Created: 2018/08/07 15:03:52 by avan-ni           #+#    #+#             */
+/*   Updated: 2018/08/07 18:15:04 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int				ft_is_error(char **argv);
 int				ft_read(t_stacks *s, int p_flag);
 int				ft_check_sorted(t_stacks *s);
 
-void			print_win(t_stacks *s, int flag);
+void			print_win(t_stacks *s, int flag, int p_flag);
 
 int				ft_check_sorted_b(t_stacks *s);
 int				ft_is_min(int *arr, int len, int num);
@@ -69,5 +69,7 @@ void			ft_sort_blocks(t_stacks *s, int div, int sml, int p_flag);
 void			ft_sort_v5(t_stacks *s, int p_flag);
 
 void			ft_free(t_stacks *s);
+
+void			ft_viz_cool(t_stacks *s, int y, int x);
 
 #endif

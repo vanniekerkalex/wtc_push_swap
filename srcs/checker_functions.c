@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   checker_functions.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
+/*   By: avan-ni <avan-ni@student.wethinkcode.co.za>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/30 13:19:37 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/07 12:18:05 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/08/07 18:14:03 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <ncurses.h>
 
 void	ft_swap_a(t_stacks *s, int flag, int p_flag)
 {
@@ -25,7 +24,7 @@ void	ft_swap_a(t_stacks *s, int flag, int p_flag)
 		if (flag)
 			write(1, "sa\n", 3);
 		if (p_flag)
-			print_win(s, flag);
+			print_win(s, flag, p_flag);
 	}
 }
 
@@ -41,7 +40,7 @@ void	ft_swap_b(t_stacks *s, int flag, int p_flag)
 		if (flag)
 			write(1, "sb\n", 3);
 		if (p_flag)
-			print_win(s, flag);
+			print_win(s, flag, p_flag);
 	}
 }
 
@@ -52,7 +51,7 @@ void	ft_swap_ab(t_stacks *s, int flag, int p_flag)
 	if (flag)
 		write(1, "ss\n", 3);
 	if (p_flag)
-		print_win(s, flag);
+		print_win(s, flag, p_flag);
 }
 
 void	ft_push_a(t_stacks *s, int flag, int p_flag)
@@ -65,7 +64,7 @@ void	ft_push_a(t_stacks *s, int flag, int p_flag)
 		if (flag)
 			write(1, "pa\n", 3);
 		if (p_flag)
-			print_win(s, flag);
+			print_win(s, flag, p_flag);
 	}
 }
 
@@ -79,6 +78,6 @@ void	ft_push_b(t_stacks *s, int flag, int p_flag)
 		if (flag)
 			write(1, "pb\n", 3);
 		if (p_flag)
-			print_win(s, flag);
+			print_win(s, flag, p_flag);
 	}
 }

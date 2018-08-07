@@ -6,7 +6,7 @@
 /*   By: jde-agr <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 16:51:01 by jde-agr           #+#    #+#             */
-/*   Updated: 2018/08/04 17:13:47 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/08/07 13:26:12 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_store_arr(t_stacks *s, char **argv)
 	while (argv[i])
 	{
 		j = 0;
-		tmp = ft_strsplit(argv[i], ' ');
+		tmp = ft_strsplit(*(argv + i), ' ');
 		while (tmp[j])
 		{
 			s->stack_a[s->size - 1 - k] = ft_atoi(tmp[j]);
@@ -77,14 +77,14 @@ int	ft_is_error(char **argv)
 	return (0);
 }
 
-int	ft_read(t_stacks *s)
+int	ft_read(t_stacks *s, int p_flag)
 {
 	char *line;
 
 	while (get_next_line(0, &line))
 	{
-		if (ft_ccmd(line))
-			ft_select_function(s, line);
+		if (ft_ccmd(line) == 1)
+			ft_select_function(s, line, p_flag);
 		else
 		{
 			free(line);

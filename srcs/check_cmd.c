@@ -6,7 +6,7 @@
 /*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 14:14:34 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/06 15:27:04 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/08/07 13:21:04 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,33 +22,35 @@ int		ft_ccmd(char *l)
 		!ft_strcmp(l, "rra") || !ft_strcmp(l, "rrb") ||
 		!ft_strcmp(l, "rrr"))
 		return (1);
+	if (!ft_strcmp(l, "-v"))
+		return (2);
 	return (0);
 }
 
-void	ft_select_function(t_stacks *s, char *str)
+void	ft_select_function(t_stacks *s, char *str, int p_flag)
 {
 	if (ft_strcmp(str, "sa") == 0)
-		ft_swap_a(s, 0);
+		ft_swap_a(s, 0, p_flag);
 	else if (ft_strcmp(str, "sb") == 0)
-		ft_swap_b(s, 0);
+		ft_swap_b(s, 0, p_flag);
 	else if (ft_strcmp(str, "ss") == 0)
-		ft_swap_ab(s, 0);
+		ft_swap_ab(s, 0, p_flag);
 	else if (ft_strcmp(str, "pa") == 0)
-		ft_push_a(s, 0);
+		ft_push_a(s, 0, p_flag);
 	else if (ft_strcmp(str, "pb") == 0)
-		ft_push_b(s, 0);
+		ft_push_b(s, 0, p_flag);
 	else if (ft_strcmp(str, "ra") == 0)
-		ft_rotate_a(s, 0);
+		ft_rotate_a(s, 0, p_flag);
 	else if (ft_strcmp(str, "rb") == 0)
-		ft_rotate_b(s, 0);
+		ft_rotate_b(s, 0, p_flag);
 	else if (ft_strcmp(str, "rr") == 0)
-		ft_rotate_ab(s, 0);
+		ft_rotate_ab(s, 0, p_flag);
 	else if (ft_strcmp(str, "rra") == 0)
-		ft_rr_a(s, 0);
+		ft_rr_a(s, 0, p_flag);
 	else if (ft_strcmp(str, "rrb") == 0)
-		ft_rr_b(s, 0);
+		ft_rr_b(s, 0, p_flag);
 	else if (ft_strcmp(str, "rrr") == 0)
-		ft_rr_ab(s, 0);
+		ft_rr_ab(s, 0, p_flag);
 }
 
 int		ft_is_dup(t_stacks *s)
@@ -71,44 +73,42 @@ int		ft_is_dup(t_stacks *s)
 	return (0);
 }
 
-void	ft_print_arr(t_stacks *s, int x, int y, WINDOW *w)
+void	ft_print_arr(t_stacks *s, int x, int y)
 {
 	int i;
 	int j;
 
 	i = s->len_a - 1;
 	j = 0;
-	mvwprintw(w, y + j, x, "TOP OF A\n");
-	mvwprintw(w, y + j + 1, x, "---\n");
-	mvwprintw(w, y + j++, x + 20, "TOP OF B\n");
-	mvwprintw(w, y + j, x + 20, "---\n");
+	mvprintw(y + j, x, "TOP OF A\n");
+	mvprintw(y + j + 1, x, "---\n");
+	mvprintw(y + j++, x + 20, "TOP OF B\n");
+	mvprintw(y + j, x + 20, "---\n");
 	j++;
 	while (i >= 0)
 	{
-		mvwprintw(w, y + j++, x, "%d\n", s->stack_a[i]);
+		mvprintw(y + j++, x, "%d\n", s->stack_a[i]);
 		i--;
 	}
 	i = s->len_b - 1;
 	j = 2;
 	while (i >= 0)
 	{
-		mvwprintw(w, y + j++, x + 20, "%d\n", s->stack_b[i]);
+		mvprintw(y + j++, x + 20, "%d\n", s->stack_b[i]);
 		i--;
 	}
 }
 
 void	print_win(t_stacks *s, int flag)
 {
-	WINDOW *win;
-
-	win = initscr();
-	wclear(win);
-	ft_print_arr(s, 0, 0, win);
-	wrefresh(win);
+	newterm(NULL, stderr, stdin);
+	curs_set(0);
+	ft_print_arr(s, 0, 0);
+	refresh();
 	if (flag == 0)
-		getch();
+		usleep(2000000);
 	else
-		usleep(500000);
-	wclear(win);
+		usleep(1000000);
+	clear();
 	endwin();
 }

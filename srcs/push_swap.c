@@ -6,36 +6,51 @@
 /*   By: jde-agr <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 16:55:36 by jde-agr           #+#    #+#             */
-/*   Updated: 2018/08/06 12:36:45 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/08/07 13:26:14 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	ft_choose(t_stacks *s, int p_flag)
+{
+	if (s->len_a == 3)
+		ft_sort_3(s, 0, p_flag);
+	else if (s->len_a == 4)
+		ft_sort_4(s, p_flag);
+	else if (s->len_a < 11)
+		ft_sort(s, 0, p_flag);
+	else
+		ft_sort_v5(s, p_flag);
+}
+
+int		ft_is_viz2(char **argv)
+{
+	if (ft_ccmd(argv[1]) == 2)
+		return (1);
+	return (0);
+}
+
 int		main(int argc, char **argv)
 {
 	t_stacks	*s;
+	int			pflag;
 
 	if (argc > 1)
 	{
 		s = init_struct();
+		pflag = 0;
 		s->size = ft_count_args(argv);
 		s->stack_a = (int *)malloc(sizeof(int) * s->size);
 		s->stack_b = (int *)malloc(sizeof(int) * s->size);
 		s->len_a = s->size;
+		(ft_is_viz2(argv)) && argv++ && pflag++;
 		if (ft_is_error(argv) || !ft_store_arr(s, argv) || ft_is_dup(s))
 		{
 			write(1, "Error\n", 6);
 			return (0);
 		}
-		if (s->len_a == 3)
-			ft_sort_3(s, 0);
-		else if (s->len_a == 4)
-			ft_sort_4(s);
-		else if (s->len_a < 11)
-			ft_sort(s, 0);
-		else
-			ft_sort_v5(s);
+		ft_choose(s, pflag);
 		ft_free(s);
 	}
 	return (0);

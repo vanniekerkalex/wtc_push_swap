@@ -6,7 +6,7 @@
 /*   By: avan-ni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 18:50:29 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/07 18:50:31 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/08/08 12:02:45 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ void	ft_rotate_b(t_stacks *s, int flag, int p_flag)
 
 void	ft_rotate_ab(t_stacks *s, int flag, int p_flag)
 {
-	ft_rotate_a(s, 1, p_flag);
-	ft_rotate_b(s, 1, p_flag);
+	ft_rotate_a(s, flag, p_flag);
+	ft_rotate_b(s, flag, p_flag);
 	if (flag)
 		write(1, "rr\n", 3);
 	if (p_flag)

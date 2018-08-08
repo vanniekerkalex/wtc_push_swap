@@ -6,7 +6,7 @@
 /*   By: avan-ni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 18:50:42 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/07 18:50:43 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/08/08 12:02:59 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ void	ft_rr_b(t_stacks *s, int flag, int p_flag)
 
 void	ft_rr_ab(t_stacks *s, int flag, int p_flag)
 {
-	ft_rr_a(s, 1, p_flag);
-	ft_rr_b(s, 1, p_flag);
+	ft_rr_a(s, flag, p_flag);
+	ft_rr_b(s, flag, p_flag);
 	if (flag)
 		write(1, "rrr\n", 4);
 	if (p_flag)

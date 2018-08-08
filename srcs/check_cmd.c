@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_cmd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-ni <avan-ni@student.wethinkcode.co.za>+#+  +:+       +#+        */
+/*   By: avan-ni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/07 18:51:21 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/07 23:30:36 by avan-ni          ###   ########.fr       */
+/*   Created: 2018/08/08 12:05:34 by avan-ni           #+#    #+#             */
+/*   Updated: 2018/08/08 12:05:36 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,8 @@ void	ft_print_arr(t_stacks *s, int x, int y)
 	j = 2;
 	attron(COLOR_PAIR(2));
 	while (i >= 0)
-		(j <= 84) ? (mvprintw(y + j++, x + 20, "%d\n", s->stack_b[i--])) : (i--);
+		(j <= 84) ? (mvprintw(y + j++, x + 20, "%d\n",
+					s->stack_b[i--])) : (i--);
 	attron(COLOR_PAIR(3));
 }
 
@@ -114,9 +115,9 @@ void	print_win(t_stacks *s, int flag, int p_flag)
 		ft_print_arr(s, 0, 0);
 	refresh();
 	if (flag == 0)
-		usleep(3000000/s->size);
+		usleep(3000000 / s->size);
 	else
-		usleep(3000000/s->size);
+		usleep(3000000 / s->size);
 	clear();
 	endwin();
 }

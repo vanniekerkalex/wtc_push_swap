@@ -45,3 +45,47 @@ ARG=`ruby -e "puts (0..49).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./checke
 ## Built With
 
 * [Atom](http://atom.io/) in C
+
+## Visualizer
+
+Image 1 of 7 - Starting the sort.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/38350082/43927334-71bcd66a-9c2d-11e8-9110-2a2829b2348a.png"><br>
+</p>
+
+Image 2 of 7
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/38350082/43927651-8ec16be4-9c2e-11e8-8333-dce9836bcdbb.png"><br>
+</p>
+
+Image 3 of 7
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/38350082/43927667-97eb4046-9c2e-11e8-9d92-ae5a233cb171.png"><br>
+</p>
+
+Image 4 of 7
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/38350082/43927681-9f78e944-9c2e-11e8-86df-4efafb1c02ef.png"><br>
+</p>
+
+Image 5 of 7
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/38350082/43927693-a81e7da2-9c2e-11e8-82e0-b369c302106c.png"><br>
+</p>
+
+Image 6 of 7
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/38350082/43927707-aff820aa-9c2e-11e8-893c-9d6c449e2e49.png"><br>
+</p>
+
+Image 7 of 7 - Sorting completed.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/38350082/43927720-b71284fc-9c2e-11e8-8a7d-4e4f89dd22ad.png"><br>
+</p>

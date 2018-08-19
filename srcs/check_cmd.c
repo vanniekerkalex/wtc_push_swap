@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_cmd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-ni <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 12:05:34 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/08 12:05:36 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/08/19 21:15:13 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,6 @@ void	ft_print_arr(t_stacks *s, int x, int y)
 
 void	print_win(t_stacks *s, int flag, int p_flag)
 {
-	newterm(NULL, stderr, stdin);
 	curs_set(0);
 	if (p_flag == 1)
 	{
@@ -119,5 +118,4 @@ void	print_win(t_stacks *s, int flag, int p_flag)
 	else
 		usleep(3000000 / s->size);
 	clear();
-	endwin();
 }

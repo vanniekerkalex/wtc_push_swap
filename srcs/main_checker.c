@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_checker.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-ni <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 18:52:58 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/07 18:53:01 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/08/19 21:22:44 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int		main(int argc, char **argv)
 	{
 		s = init_struct();
 		(pflag = ft_is_viz(argv)) && argv++;
+		(pflag) && (newterm(NULL, stderr, stdin));
 		s->size = ft_count_args(argv);
 		s->stack_a = (int *)malloc(sizeof(int) * s->size);
 		s->stack_b = (int *)malloc(sizeof(int) * s->size);
@@ -39,6 +40,7 @@ int		main(int argc, char **argv)
 		{
 			write(1, "Error\n", 6);
 			ft_free(s);
+			(pflag) && (endwin());
 			return (0);
 		}
 		(ft_check_sorted(s) && s->len_b == 0) ? (write(1, "OK\n", 3)) :

@@ -6,7 +6,7 @@
 /*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 18:52:58 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/08/19 21:22:44 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/08/27 18:14:45 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ int		main(int argc, char **argv)
 	if (argc > 1)
 	{
 		s = init_struct();
-		(pflag = ft_is_viz(argv)) && argv++;
-		(pflag) && (newterm(NULL, stderr, stdin));
+		(pflag = ft_is_viz(argv)) && argv++ && (newterm(NULL, stderr, stdin));
 		s->size = ft_count_args(argv);
 		s->stack_a = (int *)malloc(sizeof(int) * s->size);
 		s->stack_b = (int *)malloc(sizeof(int) * s->size);
@@ -43,8 +42,9 @@ int		main(int argc, char **argv)
 			(pflag) && (endwin());
 			return (0);
 		}
-		(ft_check_sorted(s) && s->len_b == 0) ? (write(1, "OK\n", 3)) :
-			(write(1, "KO\n", 3));
+		if (!pflag)
+			(ft_check_sorted(s) && s->len_b == 0) ? (write(1, "OK\n", 3))
+			: (write(1, "KO\n", 3));
 		ft_free(s);
 	}
 	return (0);

@@ -1,3 +1,5 @@
+![](push_swap.PNG)
+
 # PUSH_SWAP
 
 Sort a series of random integers using only two stacks and a specific set of commands. The "push_swap" program finds the most efficient way to sort the stack and returns a series of commands. These commands when piped to the "checker" executable will confirm or deny whether the stack has been sorted by outputting either "OK" or "KO".
